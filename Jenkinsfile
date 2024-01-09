@@ -12,14 +12,14 @@ pipeline {
             }
         }
 
-    stages {
+    stage {
         stage('Login'){
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
-    stages {
+    stage {
         stage('Build'){
             steps{
                 sh 'docker context use default'
@@ -27,7 +27,7 @@ pipeline {
             }
         }    
 
-    stages {
+    stage {
         stage('Push'){
             steps{
                 sh 'docker push davingreg/laraveldavin'
