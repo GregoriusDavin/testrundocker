@@ -1,14 +1,12 @@
 pipeline {
     agent any
-    
-    enviroment {
-    DOCKERHUB_CREDENTIALS = credentials('davingreg-dockerhub')
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('davingreg-dockerhub')
     }
 
     stages {
         stage('Check Version'){
             steps{
-                sh 'docker version'
                 sh 'docker compose version'
             }
         }
@@ -19,6 +17,7 @@ pipeline {
         }
         stage('Build'){
             steps{
+                sh 'docker context use default'
                 sh 'docker compose build'
             }
         }    
