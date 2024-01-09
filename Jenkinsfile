@@ -23,7 +23,7 @@ pipeline {
         }    
         stage('Push'){
             steps{
-                sh 'docker push davingreg/laraveldavin'
+                sh 'docker compose push'
             }
         }
     }
