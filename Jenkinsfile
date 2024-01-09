@@ -11,7 +11,6 @@ pipeline {
                 sh 'docker compose version'
             }
         }
-    }
 
     stages {
         stage('Login'){
@@ -19,7 +18,6 @@ pipeline {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
-    }
 
     stages {
         stage('Build'){
@@ -28,7 +26,6 @@ pipeline {
                 sh 'docker compose build'
             }
         }    
-    }
 
     stages {
         stage('Push'){
