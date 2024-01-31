@@ -28,7 +28,7 @@ pipeline {
 
     stage('Delete Dangling Cache') {
       steps {
-        sh 'docker builder prune -f'
+        sh 'docker buider prune -f'
       }
     }
 
