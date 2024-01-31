@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Check Version') {
-      steps {
-        sh 'docker compose version'
+      parallel {
+        stage('Check Version') {
+          steps {
+            sh 'docker compose version'
+          }
+        }
+
+        stage('Check Code') {
+          steps {
+            git(url: 'https://github.com/GregoriusDavin/testrundocker.git', branch: 'master')
+          }
+        }
+
       }
     }
 
