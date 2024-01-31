@@ -28,12 +28,7 @@ pipeline {
 
     stage('Delete Dangling Cache') {
       steps {
-        sh '''echo "Automatically confirming Docker prune..."
-
-yes | docker builder prune
-
-echo "Docker prune completed."
-'''
+        sh 'docker buider prune -f'
       }
     }
 
