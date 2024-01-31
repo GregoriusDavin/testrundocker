@@ -26,7 +26,13 @@ pipeline {
       }
     }
 
-    stage('Delete Dangling Cache') {
+    stage('Delete Local Images') {
+      steps {
+        sh 'docker rmi -f $(docker images -aq)'
+      }
+    }
+
+    stage('Delete Cache') {
       steps {
         sh 'docker builder prune -f'
       }
