@@ -40,7 +40,7 @@
         <tr>
             <td>123</td>
             <td>yosi</td>
-            <td>jl tirtoyoso</td>
+            <td>jl keabadian</td>
             <td>dvn</td>
             <td>
                 <a>Ubah</a>
