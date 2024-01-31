@@ -39,7 +39,7 @@
     <tbody>
         <tr>
             <td>123</td>
-            <td>yosi</td>
+            <td>yosapat</td>
             <td>jl keabadian</td>
             <td>dvn</td>
             <td>
