@@ -32,7 +32,7 @@
             <th>No.</th>
             <th>Nama</th>
             <th>Alamat</th>
-            <th>Username</th>
+            <th>Nickname</th>
             <th>Action</th>
         </tr>
     </thead>
