@@ -33,19 +33,13 @@ pipeline {
 
     stage('Push') {
       steps {
-        sh 'docker push davingreg/laraveldavin:latest'
+        sh 'docker compose push'
       }
     }
 
-    stage('Delete Local Images') {
+    stage('Up the container') {
       steps {
-        sh 'docker rmi -f $(docker images -aq)'
-      }
-    }
-
-    stage('Delete Cache') {
-      steps {
-        sh 'docker builder prune -f'
+        sh 'docker compose up'
       }
     }
 
