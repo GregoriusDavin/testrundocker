@@ -37,9 +37,11 @@ pipeline {
       }
     }
 
-    stage('Up the container') {
+    stage('deploy') {
       steps {
-        sh 'docker compose up'
+        script {
+            kubernetesDeploy (configs: 'kubernet.yaml', kubeconfigId: 'kubeconfig')
+        }
       }
     }
 
