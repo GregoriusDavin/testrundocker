@@ -43,16 +43,17 @@ pipeline {
           kubernetesDeploy(configs: "kubernet.yml", kubeconfigId: "kubeconfig")
       }
     }
-
   }
+  }
+
   environment {
     DOCKERHUB_CREDENTIALS = credentials('davingreg-dockerhub')
   }
+
   post {
     always {
       sh 'docker logout'
     }
 
   }
-}
 }
