@@ -19,18 +19,18 @@ spec:
             - containerPort: 80 # The port that the container is running on in the cluster
 
 
----
+# ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: laraveldavin-service
-spec:
-  selector:
-    app: laraveldavin-app 
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-    nodePort: 31000
-  type: NodePort
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: laraveldavin-service
+# spec:
+#   selector:
+#     app: laraveldavin-app 
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 80
+#     nodePort: 31000
+#   type: NodePort
