@@ -30,6 +30,11 @@ RUN rm -rf *
 RUN apt-get clean && rm -rf /var/lib/apt/lists*
 
 COPY . .
+COPY ./.env /var/www/html/.env
+COPY ./supervisord.conf /etc/supervisord.conf
+COPY ./php.ini /usr/local/etc/php/conf.d/app.ini
+COPY ./nginx.conf /etc/nginx/sites-enabled/default
+COPY ./nginx.conf /etc/nginx/sites-available/default
 
 #PHP log
 RUN mkdir /var/log/php
@@ -46,6 +51,8 @@ RUN composer install --ignore-platform-reqs
 RUN composer dump-autoload
 RUN php artisan optimize
 
-ADD entrypoint.sh /root/entrypoint.sh
+ADD entrypoint.sh /root/run/sh
+
+ENTRYPOINT ["/bin/sh","/root/run/sh"]
 
 EXPOSE 80
