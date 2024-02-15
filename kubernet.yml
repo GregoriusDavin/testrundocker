@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: laraveldavin-app-deployment
+  name: laraveldavin-deployment
 spec:
   selector:
     matchLabels:
       app: laraveldavin-app
-  replicas: 2 # Number of replicas that will be created for this deployment
+  replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: laraveldavin-app
-          image: davingreg/laraveldavin # Image that will be used to containers in the cluster
-          imagePullPolicy: IfNotPresent
+          image: davingreg/laraveldavin:latest # Image that will be used to containers in the cluster
           ports:
             - containerPort: 80 # The port that the container is running on in the cluster
 
@@ -28,10 +27,10 @@ metadata:
   name: laraveldavin-service
 spec:
   selector:
-    app: nodeapp 
-  type: LoadBalancer
+    app: laraveldavin-app 
   ports:
   - protocol: TCP
-    port: 5000
+    port: 80
     targetPort: 80
-    nodePort: 31110
+    nodePort: 31000
+  type: NodePort
