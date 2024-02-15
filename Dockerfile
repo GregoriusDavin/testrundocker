@@ -30,7 +30,6 @@ RUN rm -rf *
 RUN apt-get clean && rm -rf /var/lib/apt/lists*
 
 COPY . .
-COPY ./.env /var/www/html/.env
 COPY ./supervisord.conf /etc/supervisord.conf
 COPY ./php.ini /usr/local/etc/php/conf.d/app.ini
 COPY ./nginx.conf /etc/nginx/sites-enabled/default
