@@ -14,7 +14,6 @@ pipeline {
             git(url: 'https://github.com/GregoriusDavin/testrundocker.git', branch: 'master')
           }
         }
-
       }
     }
 
@@ -36,14 +35,6 @@ pipeline {
         sh 'docker compose push'
       }
     }
-
-    stage('deploy') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "kubernet.yml", kubeconfigId: "kubeconfig")
-      }
-    }
-  }
   }
 
   environment {
